@@ -61,14 +61,37 @@ console.log(returnEnabled(preview));
 *
 * Return 	value from key enabled (boolean)
 */
+function returnEnabled(data) {
+	console.log(data);
+	//console.log(data.enabled);
+	for (var key in data) {
+		//console.log(key);
+		if (key === "enabled") {
+			data[key] = true;
+		}
+	}
+	//data.enabled = true;
+	//return data.enabled;
+}
 
+console.log(returnEnabled(preview));
 /*
 * Function that retrieves the urls only from the key "resolutions" 
 * , stores the values in an array called "urls", and returns the created array
 * 
 * Return 	urls (array)
 */
+function retrievesUrls(data) {
+	//console.log(data);
+	var urls = [];
+		for (var key in data.images[0].resolutions) {
+			console.log(data.images[0].resolutions[key].url);
+			urls.push(data.images[0].resolutions[key].url);
+		}
+		return urls;
+}
 
+retrievesUrls(preview);
 /*
 * Function that retrieves the first nested key and value pairing
 * from the values of "images", stores them in a new object called 
